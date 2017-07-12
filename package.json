@@ -1,0 +1,19 @@
+{
+  "name": "wowfun",
+  "version": "1.0.0",
+  "description": "World of Warcraft application used for my own fun/needs consuming the battle.net API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AustinTruex68/wowfun.git"
+  },
+  "author": "Austin Truex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AustinTruex68/wowfun/issues"
+  },
+  "homepage": "https://github.com/AustinTruex68/wowfun#readme"
+}
