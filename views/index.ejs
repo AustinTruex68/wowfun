@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WoW App</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/jquery-ui-dist/jquery-ui.min.css">
+</head>
+<body>
+    <header>
+        <% include ../views/partials/header %>
+    </header>
+    <div class="container">
+        <form action="/callApi" method="post">
+            <div class="row">
+                <div class="col-xs-6">
+                    <input type="text" placeholder="Character Name" value="vulcanite" name="character" class="form-control" required>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" placeholder="Realm Name" name="realm" value="tichondrius" id="realms" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success" style="width: 100%;">Input</button>
+        </form>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="panel panel-danger" id="characterData" style="display: none;">
+                    <div class="panel-heading">
+                        <h4 id="charName"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img id="charImage" src="" alt="character image">
+                            </div>
+                            <div class="col-xs-10 text-left">
+                                <p>Level <span id="charLevel"></span>&nbsp;<span id="charRace"></span>&nbsp;<span id="charClass"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/initialize.js"></script>
+    <script src="/js/conf/realmAutoConf.js"></script>
+    <script src="/js/conf/characterConf.js"></script>
+</body>
+
+</html>

@@ -8,14 +8,21 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 var router = express.Router();
 
+app.set('view engine', 'ejs');
+app.set('views', './views');
+//set up static lib folders
+app.use("/node_modules", express.static(__dirname + '/node_modules'));
+app.use("/css", express.static(__dirname + '/css'));
+app.use("/js", express.static(__dirname + '/js'));
+app.use("/assets", express.static(__dirname + '/assets'));
+
+//enable body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static('./'));
-
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.render('index');
 });
 
 //handle the api post
@@ -29,6 +36,18 @@ app.post('/callApi', (req, res) => {
             return res.send([data, 'success']);
         }
     });
+})
+
+app.post('/achieveData', (req, res) => {
+    CallApi.getAchieveData(req.body, (err, data) => {
+        if (err) {
+            console.log("here");
+            res.send('error')
+        } else {
+            console.log(data);
+            return res.send([data, 'success']);
+        }
+    })
 })
 
 
