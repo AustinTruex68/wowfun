@@ -29,10 +29,8 @@ app.get('/', function(req, res) {
 app.post('/callApi', (req, res) => {
     CallApi.callApi(req.body, (err, data) => {
         if (err) {
-            console.log("here");
             res.send('error')
         } else {
-            console.log(data);
             return res.send([data, 'success']);
         }
     });
@@ -44,7 +42,6 @@ app.post('/achieveData', (req, res) => {
             console.log("here");
             res.send('error')
         } else {
-            console.log(data);
             return res.send([data, 'success']);
         }
     })

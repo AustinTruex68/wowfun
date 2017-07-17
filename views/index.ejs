@@ -5,7 +5,9 @@
     <title>WoW App</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/node_modules/jquery-ui-dist/jquery-ui.min.css">
+    <link rel="stylesheet" href="/css/global.css">
 </head>
+
 <body>
     <header>
         <% include ../views/partials/header %>
@@ -27,21 +29,10 @@
         <br>
         <div class="row">
             <div class="col-xs-6">
-                <div class="panel panel-danger" id="characterData" style="display: none;">
-                    <div class="panel-heading">
-                        <h4 id="charName"></h4>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <img id="charImage" src="" alt="character image">
-                            </div>
-                            <div class="col-xs-10 text-left">
-                                <p>Level <span id="charLevel"></span>&nbsp;<span id="charRace"></span>&nbsp;<span id="charClass"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <% include ../views/partials/basicCharData %>
+            </div>
+            <div class="col-xs-6">
+                <% include ../views/partials/charMythicPlusData %>
             </div>
         </div>
     </div>
@@ -51,6 +42,7 @@
     <script src="/js/initialize.js"></script>
     <script src="/js/conf/realmAutoConf.js"></script>
     <script src="/js/conf/characterConf.js"></script>
+    <script src="/js/conf/mythicPlusConf.js"></script>
 </body>
 
 </html>
