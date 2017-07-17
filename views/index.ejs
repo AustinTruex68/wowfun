@@ -5,49 +5,58 @@
     <title>WoW App</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/node_modules/jquery-ui-dist/jquery-ui.min.css">
+    <link rel="stylesheet" href="/lib/metisMenu.min.css">
+    <link rel="stylesheet" href="/lib/sb-admin-2.min.css">
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/global.css">
 </head>
 
 <body>
     <header>
-        <% include ../views/partials/header %>
+    <% include ../views/partials/header %>
+    <% include ../views/partials/navigation %>
     </header>
-    <div class="container-fluid">
-        <div class="row">
-            <% include ../views/partials/navigation %>
-                <div id="mainContent" class="col-lg-9">
-                    <form action="/callApi" method="post">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <input type="text" placeholder="Character Name" value="vulcanite" name="character" class="form-control" required>
-                            </div>
-                            <div class="col-xs-6">
-                                <input type="text" placeholder="Realm Name" name="realm" value="tichondrius" id="realms" class="form-control" required>
-                            </div>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-success" style="width: 100%;">Input</button>
-                    </form>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <% include ../views/partials/basicCharData %>
-                        </div>
-                        <div class="col-xs-6">
-                            <% include ../views/partials/charMythicPlusData %>
-                        </div>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Home</h1>
                     </div>
                 </div>
+                <form action="/callApi" method="post">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="Character Name" value="vulcanite" name="character" class="form-control" required>
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="Realm Name" name="realm" value="tichondrius" id="realms" class="form-control" required>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-success" style="width: 100%;">Input</button>
+                </form>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <% include ../views/partials/basicCharData %>
+                    </div>
+                    <div class="col-xs-6">
+                        <% include ../views/partials/charMythicPlusData %>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/js/initialize.js"></script>
-    <script src="/js/conf/realmAutoConf.js"></script>
-    <script src="/js/conf/characterConf.js"></script>
-    <script src="/js/conf/mythicPlusConf.js"></script>
+        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/lib/metisMenu.min.js"></script>
+        <script src="/lib/sb-admin-2.min.js"></script>
+        <script src="/js/initialize.js"></script>
+        <script src="/js/conf/realmAutoConf.js"></script>
+        <script src="/js/conf/characterConf.js"></script>
+        <script src="/js/conf/mythicPlusConf.js"></script>
 </body>
 
 </html>
