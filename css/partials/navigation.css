@@ -1,0 +1,12 @@
+#sideNav {
+   background-color: yellow;
+    width: 200px;
+    position: absolute;
+    height: 100%;
+}
+
+#mainContent {
+  float: left;
+    width: 84%;
+    margin-left: 200px;
+}
