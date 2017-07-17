@@ -1,3 +1,7 @@
-header {
- color: red;
+.navbar-inverse {
+    background-color: #2e353d;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #CCCCCC;
 }

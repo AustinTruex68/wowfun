@@ -12,28 +12,33 @@
     <header>
         <% include ../views/partials/header %>
     </header>
-    <div class="container">
-        <form action="/callApi" method="post">
-            <div class="row">
-                <div class="col-xs-6">
-                    <input type="text" placeholder="Character Name" value="vulcanite" name="character" class="form-control" required>
-                </div>
-                <div class="col-xs-6">
-                    <input type="text" placeholder="Realm Name" name="realm" value="tichondrius" id="realms" class="form-control" required>
-                </div>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-success" style="width: 100%;">Input</button>
-        </form>
-        <br>
-        <br>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-6">
-                <% include ../views/partials/basicCharData %>
-            </div>
-            <div class="col-xs-6">
-                <% include ../views/partials/charMythicPlusData %>
-            </div>
+            <% include ../views/partials/navigation %>
+                <div id="mainContent" class="col-lg-9">
+                    <form action="/callApi" method="post">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <input type="text" placeholder="Character Name" value="vulcanite" name="character" class="form-control" required>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text" placeholder="Realm Name" name="realm" value="tichondrius" id="realms" class="form-control" required>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Input</button>
+                    </form>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <% include ../views/partials/basicCharData %>
+                        </div>
+                        <div class="col-xs-6">
+                            <% include ../views/partials/charMythicPlusData %>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>

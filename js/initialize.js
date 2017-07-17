@@ -65,5 +65,6 @@ $("form").submit(function(e) {
         },
         "json" // The format the response should be in
     );
-    console.log('here?');
 });
+
+
