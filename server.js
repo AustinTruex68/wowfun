@@ -14,6 +14,7 @@ app.set('views', './views');
 app.use("/node_modules", express.static(__dirname + '/node_modules'));
 app.use("/css", express.static(__dirname + '/css'));
 app.use("/js", express.static(__dirname + '/js'));
+app.use("/lib", express.static(__dirname + '/lib'));
 app.use("/assets", express.static(__dirname + '/assets'));
 
 //enable body parser
