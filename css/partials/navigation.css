@@ -1,12 +1,30 @@
-#sideNav {
-   background-color: yellow;
-    width: 200px;
-    position: absolute;
-    height: 100%;
+.navbar-default{
+    background-color: #2e353d;
+    border-color: #339504;
 }
 
-#mainContent {
-  float: left;
-    width: 84%;
-    margin-left: 200px;
+.navbar-header .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-header .navbar-brand:hover {
+    color: #339504;
+}
+
+.sidebar ul li a.active {
+    background-color: #2E583D;
+    color: #ffffff;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+}
+
+.sidebar ul li a:hover {
+    background-color: #2e353d;
+    color: #339504;
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #339504;
 }

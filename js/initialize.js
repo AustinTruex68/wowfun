@@ -1,3 +1,8 @@
+firebaseNS.setDbRef();
+
+//setup recently checked
+var recentPlayers = firebaseNS.getRecentPlayers();
+
 $("form").submit(function(e) {
     e.preventDefault();
     var $this = $(this);
@@ -9,7 +14,7 @@ $("form").submit(function(e) {
             var parsedData = jQuery.parseJSON(data[0]);
 
             var charData = characterConfNS.generateCharInfo(parsedData);
-
+            firebaseNS.postNewCharacter(charData[0]);
             //inject char data
             $('#charName').text(charData[0].charName + ' - ' + charData[0].charRealm);
             $('#charImage').attr({
@@ -65,6 +70,5 @@ $("form").submit(function(e) {
         },
         "json" // The format the response should be in
     );
+
 });
-
-

@@ -23,8 +23,13 @@ app.use(bodyParser.json());
 
 
 app.get('/', function(req, res) {
-    res.render('index');
+    res.render('pages/index');
 });
+
+app.get('/mythicplus', function(req, res){
+    res.render('pages/mythicplus');
+})
+
 
 //handle the api post
 app.post('/callApi', (req, res) => {
