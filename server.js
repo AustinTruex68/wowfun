@@ -57,6 +57,17 @@ app.post('/achieveData', (req, res) => {
     })
 })
 
+app.post('/guildMembers', (req, res) => {
+    CallApi.getGuildMembers(req.body, (err, data) => {
+        if (err) {
+            console.log("here");
+            res.send('error')
+        } else {
+            return res.send([data, 'success']);
+        }
+    })
+})
+
 
 const server = http.createServer(app);
 

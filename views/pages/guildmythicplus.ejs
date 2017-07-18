@@ -16,10 +16,30 @@
                     <h3 class="page-header">Guild Mythic Plus</h3>
                 </div>
             </div>
-            <% include ../../views/partials/guildMythicData %>
+            <form action="/guildMembers" method="post">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input type="text" placeholder="Guild Name" value="Transcended" name="guildName" class="form-control" required>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="text" placeholder="Realm Name" name="realm" value="tichondrius" id="realms" class="form-control" required>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Input</button>
+            </form>
+            <div class="row">
+                <div class="col-xs-6">
+                    <% include ../../views/partials/basicGuildData %>
+                </div>
+                <div class="col-xs-6">
+                    <% include ../../views/partials/guildMythicData %>
+                </div>
+            </div>
         </div>
     </div>
     <% include ../../views/partials/footerTags %>
+        <script src="/js/pages/guildmythicplusInitialize.js"></script>
 </body>
 
 </html>
