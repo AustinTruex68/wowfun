@@ -30,6 +30,10 @@ app.get('/mythicplus', function(req, res){
     res.render('pages/mythicplus');
 })
 
+app.get('/guildmythicplus', function(req, res){
+    res.render('pages/guildmythicplus');
+})
+
 
 //handle the api post
 app.post('/callApi', (req, res) => {
