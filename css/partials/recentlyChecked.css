@@ -1,0 +1,17 @@
+.recentPlayThumb{
+    width: 65px;
+    border-radius: 5px;
+}
+
+.recently-checked-panel p{
+font-size: 12px;
+}
+
+.recently-checked-panel .col-xs-2 {
+    border-right: 1px solid #2e353d;
+}
+
+.recently-checked-panel .col-xs-2:last-child {
+    border-right: none;
+}
+
