@@ -1,0 +1,8 @@
+.guildMemberRow {
+    border-bottom: 1px solid black;
+}
+
+.guildMemberImage {
+    width: 50px;
+    padding: 5px;
+}
