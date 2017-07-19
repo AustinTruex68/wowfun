@@ -1,5 +1,5 @@
 characterConfNS = {
-    generateCharInfo: function(parsedData) {
+    generateCharInfo: function(parsedData, fromGuild) {
         console.log('Generating Character Info Nicely');
         //set class values
         var classes = [{
@@ -112,8 +112,11 @@ characterConfNS = {
         }
         //assign the character class
         var charClassName = classes[parsedData.class - 1].name;
-        //assign the character faction
-        var charFactionName = factions[parsedData.faction].name;
+        //adding this so I can call from multiple calls
+        if (fromGuild === false) {
+            //assign the character faction
+            var charFactionName = factions[parsedData.faction].name;
+        }
         //assign the character gender
         var charGenderName = genders[parsedData.gender].name;
         //assign the character name
@@ -126,6 +129,6 @@ characterConfNS = {
         var charLevel = parsedData.level;
 
 
-        return [{"charLevel": charLevel, "charClass":charClassName, "charRace":charRaceName, "charFaction":charFactionName, "charGender":charGenderName, "charName":charName, "charRealm":charRealmName, "charThumb":charThumb}];
+        return [{ "charLevel": charLevel, "charClass": charClassName, "charRace": charRaceName, "charFaction": charFactionName, "charGender": charGenderName, "charName": charName, "charRealm": charRealmName, "charThumb": charThumb }];
     }
 }

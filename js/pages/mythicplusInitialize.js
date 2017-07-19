@@ -8,7 +8,7 @@ $("form").submit(function(e) {
             console.log(data);
             var parsedData = jQuery.parseJSON(data[0]);
 
-            var charData = characterConfNS.generateCharInfo(parsedData);
+            var charData = characterConfNS.generateCharInfo(parsedData, false);
             firebaseNS.postNewCharacter(charData[0]);
             //inject char data
             $('#charName').text(charData[0].charName + ' - ' + charData[0].charRealm);
