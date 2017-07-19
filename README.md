@@ -1,2 +1,2 @@
 # wowfun
-World of Warcraft application used for my own fun/needs consuming the battle.net API
+World of Warcraft application consuming the Battlenet API, for purposes of my guild, friends, and other players in World of Warcraft.

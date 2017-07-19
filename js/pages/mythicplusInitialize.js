@@ -5,19 +5,31 @@ $("form").submit(function(e) {
         $this.attr("action"),
         $this.serialize(),
         function(data) {
-            console.log(data);
             var parsedData = jQuery.parseJSON(data[0]);
 
             var charData = characterConfNS.generateCharInfo(parsedData, false);
+
+            console.log(charData);
             firebaseNS.postNewCharacter(charData[0]);
             //inject char data
             $('#charName').text(charData[0].charName + ' - ' + charData[0].charRealm);
             $('#charImage').attr({
-                src: 'http://us.battle.net/static-render/us/' + charData[0].charThumb
+                src: 'http://us.battle.net/static-render/us/' + charData[0].charThumb,
+                onerror: "characterConfNS.noAvailableCharImage(this)"
             });
             $('#charLevel').text(charData[0].charLevel);
             $('#charRace').text(charData[0].charRace);
             $('#charClass').text(charData[0].charClass);
+
+            //adjust panel based on faction
+            if (charData[0].charFaction === "Horde") {
+                $('#characterData').addClass('panel-danger');
+                $('#characterDungeonData').addClass('panel-danger');
+            } else {
+                $('#characterData').addClass('panel-info');
+                $('#characterDungeonData').addClass('panel-info');
+            }
+
 
             //show character panel
             $('#characterData').show();

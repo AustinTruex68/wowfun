@@ -1,5 +1,6 @@
 <!-- basic guild data -->
-<div class="panel panel-danger" id="guildData" style="display: none;">
+<link rel="stylesheet" href="../../css/partials/basicGuildData.css">
+<div class="panel" id="guildData" style="display: none;">
     <div class="panel-heading">
         <h4 id="guildName"></h4>
     </div>
@@ -9,8 +10,16 @@
                 <img id="guildImage" class="guildThumbnail" src="" alt="guild image">
             </div>
             <div class="col-xs-10 text-left">
-                <p>Level <span id="guildLevel"></span>&nbsp;<span id="guildAchieve"></span></p>
+                <p>Level:&nbsp;<span id="guildLevel"></span>&nbsp;|&nbsp;Achievement Points:&nbsp;<span id="guildAchieve"></span>&nbsp;|&nbsp;Member Count:&nbsp;<span id=guildMemberCount></span></p>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="guildMembers">
+                    <!-- will have characters injected -->
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -130,5 +130,11 @@ characterConfNS = {
 
 
         return [{ "charLevel": charLevel, "charClass": charClassName, "charRace": charRaceName, "charFaction": charFactionName, "charGender": charGenderName, "charName": charName, "charRealm": charRealmName, "charThumb": charThumb }];
+    },
+    noAvailableCharImage: function(source) {
+        source.src = "http://www.vigilanteqap.com.br/site/modules/mod_aku_accordion/images/noimage.png";
+        source.onerror = "";
+        return true;
+
     }
 }

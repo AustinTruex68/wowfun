@@ -2,6 +2,7 @@
 var recentPlayers = firebaseNS.getRecentPlayers();
 //check once it's resolved.
 recentPlayers.then(function(promiseResult) {
+    // need to replace this with a jQuery each (dumb me)
     var firstChar = promiseResult[0][0];
     var secondChar = promiseResult[1][0];
     var thirdChar = promiseResult[2][0];

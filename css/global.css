@@ -21,3 +21,22 @@ body {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     background-color: #2E583D;
 }
+
+
+.panel-danger>.panel-heading{
+    background-color: #c90c10;
+    color: #ffffff;
+}
+
+.panel-danger {
+    border-color: black;
+}
+
+.panel-info>.panel-heading {
+    background-color: #004e98;
+    color: #ffffff;
+}
+
+.panel-info {
+    border-color: #fee600;
+}
