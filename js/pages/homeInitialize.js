@@ -15,11 +15,13 @@ recentPlayers.then(function(promiseResult) {
     $('#firstCharLevel').text(firstChar.charLevel);
     if (firstChar.charThumb === firstChar.charRealm) {
         $('#firstCharThumb').attr({
-            src: '../../assets/images/no-icon.png'
+            src: '../../assets/images/no-icon.png',
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     } else {
         $('#firstCharThumb').attr({
-            src: 'http://us.battle.net/static-render/us/' + firstChar.charThumb
+            src: 'http://us.battle.net/static-render/us/' + firstChar.charThumb,
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     }
     //secondChar to dom
@@ -29,11 +31,13 @@ recentPlayers.then(function(promiseResult) {
     $('#secondCharLevel').text(secondChar.charLevel);
     if (secondChar.charThumb === secondChar.charRealm) {
         $('#secondCharThumb').attr({
-            src: '../../assets/images/no-icon.png'
+            src: '../../assets/images/no-icon.png',
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     } else {
         $('#secondCharThumb').attr({
-            src: 'http://us.battle.net/static-render/us/' + secondChar.charThumb
+            src: 'http://us.battle.net/static-render/us/' + secondChar.charThumb,
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     }
     //thirdChar to dom
@@ -47,7 +51,8 @@ recentPlayers.then(function(promiseResult) {
         });
     } else {
         $('#thirdCharThumb').attr({
-            src: 'http://us.battle.net/static-render/us/' + thirdChar.charThumb
+            src: 'http://us.battle.net/static-render/us/' + thirdChar.charThumb,
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     }
 
@@ -62,7 +67,8 @@ recentPlayers.then(function(promiseResult) {
         });
     } else {
         $('#fourthCharThumb').attr({
-            src: 'http://us.battle.net/static-render/us/' + fourthChar.charThumb
+            src: 'http://us.battle.net/static-render/us/' + fourthChar.charThumb,
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     }
 
@@ -73,11 +79,13 @@ recentPlayers.then(function(promiseResult) {
     $('#fifthCharLevel').text(fifthChar.charLevel);
     if (fifthChar.charThumb === fifthChar.charRealm) {
         $('#fifthCharThumb').attr({
-            src: '../../assets/images/no-icon.png'
+            src: '../../assets/images/no-icon.png',
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     } else {
         $('#fifthCharThumb').attr({
-            src: 'http://us.battle.net/static-render/us/' + fifthChar.charThumb
+            src: 'http://us.battle.net/static-render/us/' + fifthChar.charThumb,
+            onerror: "characterConfNS.noAvailableCharImage(this)"
         });
     }
 });

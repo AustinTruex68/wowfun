@@ -68,6 +68,30 @@ app.post('/guildMembers', (req, res) => {
     })
 })
 
+app.post('/getCharacterFeed', (req, res) => {
+    CallApi.getCharacterFeed(req.body, (err, data) => {
+        if (err) {
+            console.log("here");
+            res.send('error')
+        } else {
+            return res.send([data, 'success']);
+        }
+    })
+})
+
+app.post('/getJackpotItem', (req, res) => {
+    CallApi.getJackpotItem(req.body, (err, data) => {
+        if (err) {
+            console.log("here");
+            res.send('error')
+        } else {
+            
+            return res.send([data, 'success']);
+        }
+    })
+})
+
+
 
 const server = http.createServer(app);
 

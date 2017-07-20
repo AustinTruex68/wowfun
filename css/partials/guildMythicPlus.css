@@ -1,4 +1,19 @@
-.guildThumbnail{
+.guildThumbnail {
     width: 65px;
     border-radius: 5px;
+}
+
+.guildMemberRow{
+    vertical-align: middle;
+}
+
+.guildMemberRow:hover {
+    cursor: pointer;
+    background-color: #2E583D;
+    color: #ffffff;
+}
+
+.guildMemberContainer {
+    color: #000000;
+    text-decoration: none;
 }

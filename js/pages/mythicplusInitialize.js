@@ -5,6 +5,7 @@ $("form").submit(function(e) {
         $this.attr("action"),
         $this.serialize(),
         function(data) {
+            console.log(data);
             var parsedData = jQuery.parseJSON(data[0]);
 
             var charData = characterConfNS.generateCharInfo(parsedData, false);

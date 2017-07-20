@@ -128,7 +128,6 @@ characterConfNS = {
         //assign the character level
         var charLevel = parsedData.level;
 
-
         return [{ "charLevel": charLevel, "charClass": charClassName, "charRace": charRaceName, "charFaction": charFactionName, "charGender": charGenderName, "charName": charName, "charRealm": charRealmName, "charThumb": charThumb }];
     },
     noAvailableCharImage: function(source) {
