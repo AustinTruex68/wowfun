@@ -32,27 +32,82 @@ $("form").submit(function(e) {
             }
 
             $("#guildData").show();
+
             var generatedHTML = "";
+            //set up pagination
+            var pagePageCount = Math.ceil(guildData[0].memberList.length / 10)
 
-            $.each(guildData[0].memberList, function(index, value) {
-                console.log(index);
-                var currentGuildie =
-                    '<ul id="pagination-demo" class="pagination-sm"></ul>' +
-                    '<a class="' + value[0].charName + ' ' + value[0].charRealm + ' guildMemberContainer">' +
-                    '<div class="row guildMemberRow">' +
-                    '<div class="col-xs-2">' +
-                    '<img class="guildMemberImage" onerror="characterConfNS.noAvailableCharImage(this)" alt="guildy picture" src="http://us.battle.net/static-render/us/' + value[0].charThumb + '"></div>' +
-                    '<div class="col-xs-2"><p><br>' + value[0].charName + '</p></div>' +
-                    '<div class="col-xs-2"><p><br>' + value[0].charLevel + '</p></div>' +
-                    '<div class="col-xs-2"><p><br>' + value[0].charRace + '</p></div>' +
-                    '<div class="col-xs-2"><p><br>' + value[0].charClass + '</p></div>' +
-                    '</div>' +
-                    '</a>'
+            if (pagePageCount <= 10) {
+                var pageVisiblePages = pagePageCount;
+            } else {
+                var pageVisiblePages = 10;
+            }
 
-                generatedHTML += currentGuildie;
+            $('#guildPagination').twbsPagination({
+                totalPages: pagePageCount,
+                visiblePages: pageVisiblePages,
+                onPageClick: function(event, page) {
+                    generatedHTML = "";
+                    switch (page) {
+                        case 1:
+                            var slicer1 = 0;
+                            var slicer2 = 10;
+                            break;
+                        case 2:
+                            var slicer1 = 10;
+                            var slicer2 = 20;
+                            break;
+                        case 3:
+                            var slicer1 = 20;
+                            var slicer2 = 30;
+                            break;
+                        case 4:
+                            var slicer1 = 30;
+                            var slicer2 = 40;
+                            break;
+                        case 5:
+                            var slicer1 = 40;
+                            var slicer2 = 50;
+                            break;
+                        case 6:
+                            var slicer1 = 50;
+                            var slicer2 = 60;
+                            break;
+                        case 7:
+                            var slicer1 = 60;
+                            var slicer2 = 70;
+                            break;
+                        case 8:
+                            var slicer1 = 70;
+                            var slicer2 = 80;
+                            break;
+                        case 9:
+                            var slicer1 = 80;
+                            var slicer2 = 90;
+                            break;
+                        case 10:
+                            var slicer1 = 90;
+                            var slicer2 = 100;
+                            break;
+                    }
+                    $.each(guildData[0].memberList.slice(slicer1, slicer2), function(index, value) {
+                        var currentGuildie =
+                            '<a class="' + value[0].charName + ' ' + value[0].charRealm + ' guildMemberContainer">' +
+                            '<div class="row guildMemberRow">' +
+                            '<div class="col-xs-2">' +
+                            '<img class="guildMemberImage" onerror="characterConfNS.noAvailableCharImage(this)" alt="guildy picture" src="http://us.battle.net/static-render/us/' + value[0].charThumb + '"></div>' +
+                            '<div class="col-xs-2"><p><br>' + value[0].charName + '</p></div>' +
+                            '<div class="col-xs-2"><p><br>' + value[0].charLevel + '</p></div>' +
+                            '<div class="col-xs-2"><p><br>' + value[0].charRace + '</p></div>' +
+                            '<div class="col-xs-2"><p><br>' + value[0].charClass + '</p></div>' +
+                            '</div>' +
+                            '</a>'
+
+                        generatedHTML += currentGuildie;
+                    });
+                    $("#guildMembers").html(generatedHTML);
+                }
             });
-
-            $("#guildMembers").html(generatedHTML);
 
         },
         "json" // The format the response should be in
