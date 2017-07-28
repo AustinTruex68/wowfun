@@ -1,5 +1,5 @@
 .recentPlayThumb{
-    width: 65px;
+    max-height: 50px;
     border-radius: 5px;
 }
 

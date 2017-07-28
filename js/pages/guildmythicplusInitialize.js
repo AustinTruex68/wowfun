@@ -8,6 +8,10 @@ $("form").submit(function(e) {
             var parsedData = jQuery.parseJSON(data[0]);
             var guildData = guildConfNS.generateGuildInfo(parsedData);
 
+            //post checked guild to database
+            firebaseNS.postNewGuild(guildData[0]);
+
+            //inject guild data
             $("#guildName").text('<' + guildData[0].guildName + '>' +
                 ' - ' + guildData[0].guildRealm);
 
@@ -145,7 +149,6 @@ $(document).on('click', "a.guildMemberContainer", function() {
         } else {
             var chestItem = chestItems[0];
         }
-
 
         if (checker.length === parseSelected.feed.length) {
             console.log("they did nothing!");

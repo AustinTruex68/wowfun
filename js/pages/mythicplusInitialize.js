@@ -10,7 +10,6 @@ $("form").submit(function(e) {
 
             var charData = characterConfNS.generateCharInfo(parsedData, false);
 
-            console.log(charData);
             firebaseNS.postNewCharacter(charData[0]);
             //inject char data
             $('#charName').text(charData[0].charName + ' - ' + charData[0].charRealm);

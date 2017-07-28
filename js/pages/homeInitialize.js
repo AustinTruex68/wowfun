@@ -89,3 +89,28 @@ recentPlayers.then(function(promiseResult) {
         });
     }
 });
+
+// //setup recently checked guilds
+var recentGuilds = firebaseNS.getRecentGuilds();
+//check once it's resolved.
+var generatedGuildHTML = "";
+
+recentGuilds.then(function(promiseResult) {
+    console.log(promiseResult);
+    var recentGuilds = promiseResult;
+    $.each(recentGuilds, function(index, value) {
+        console.log(value);
+        if (value[0].guildFaction === "Horde") {
+            var guildImagePath = '../../assets/images/horde.png'
+        } else {
+            var guildImagePath = '../../assets/images/alliance.png'
+        }
+        var currentGuild =
+            '<div class="col-xs-2 text-center">' +
+            '<img src="' + guildImagePath + '" alt="' + value[0].guildFaction + '" class="recentPlayThumb">' +
+            '<p><span>' + value[0].guildName + '</span>&nbsp;-&nbsp;<span>' + value[0].guildRealm + '</span><br><span>Members:&nbsp;' + value[0].guildMemberCount + '</span></p>' +
+            '</div>';
+        generatedGuildHTML += currentGuild;
+    });
+    $('#injectedRecentGuilds').html(generatedGuildHTML);
+});
