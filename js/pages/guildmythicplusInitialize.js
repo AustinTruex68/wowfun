@@ -122,14 +122,31 @@ $(document).on('click', "a.guildMemberContainer", function() {
     $.post("/getCharacterFeed", { realm: selectedPlayersRealm, character: selectedPlayersName }, function(data) {
         var parseSelected = jQuery.parseJSON(data[0]);
         //checks to see if they got any chest loot at all
+        var chestItems = [];
         var checker = [];
         for (var i = 0; i < parseSelected.feed.length; i++) {
             if (parseSelected.feed[i].context === "challenge-mode-jackpot") {
-                var chestItem = parseSelected.feed[i];
+                chestItems.push(parseSelected.feed[i]);
             } else {
                 checker.push(i);
             }
         }
+
+        if (chestItems.length > 1) {
+
+             var mostRecentTime =  Math.max.apply(Math, chestItems.map(function(o) {
+                    return o.timestamp;
+                }));
+            for(var i = 0; i < chestItems.length; i++){
+                if(chestItems[i].timestamp === mostRecentTime){
+                    var chestItem = chestItems[i];
+                }
+            }
+        } else {
+            var chestItem = chestItems[0];
+        }
+
+
         if (checker.length === parseSelected.feed.length) {
             console.log("they did nothing!");
             $("#selectedCharMythicRan").text("No Key Found");
