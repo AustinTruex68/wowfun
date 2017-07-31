@@ -2,6 +2,7 @@ const http = require('http');
 const express = require('express');
 var bodyParser = require('body-parser');
 var CallApi = require('./models/apicall.js');
+var Scrape = require('./models/scrape.js');
 var path = require('path');
 
 const PORT = process.env.PORT || 8000;
@@ -26,11 +27,11 @@ app.get('/', function(req, res) {
     res.render('pages/index');
 });
 
-app.get('/mythicplus', function(req, res){
+app.get('/mythicplus', function(req, res) {
     res.render('pages/mythicplus');
 })
 
-app.get('/guildmythicplus', function(req, res){
+app.get('/guildmythicplus', function(req, res) {
     res.render('pages/guildmythicplus');
 })
 
@@ -39,10 +40,20 @@ app.get('/guildmythicplus', function(req, res){
 app.post('/callApi', (req, res) => {
     CallApi.callApi(req.body, (err, data) => {
         if (err) {
-            res.send('error')
+            res.send('error');
         } else {
-            return res.send([data, 'success']);
+            var apiData = data;
         }
+        //scrape the data from wow progress
+        Scrape.scrapeWowPlayer(req.body, (err, scrapeData) => {
+            if (err) {
+                console.log("here");
+                res.send('error')
+            } else {
+                //send both, api and scrape data
+                res.send([apiData, scrapeData]);
+            }
+        })
     });
 })
 
@@ -85,11 +96,23 @@ app.post('/getJackpotItem', (req, res) => {
             console.log("here");
             res.send('error')
         } else {
-            
             return res.send([data, 'success']);
         }
     })
 })
+
+//test scrape
+// app.post('/testScrape', function(req, res) {
+// Scrape.doAThing(req.body, (err, data) => {
+//         if (err) {
+//             console.log("here");
+//             res.send('error')
+//         } else {
+//             console.log("here succ");
+//             res.send([data, 'success']);
+//         }
+//     })
+// });
 
 
 
